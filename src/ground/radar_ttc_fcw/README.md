@@ -63,7 +63,7 @@ mkdocs serve
 
 - `data/ttc_result.csv`：`t, track, depth, raw_depth, v_radial, az_deg, n_pts, closing_doppler, closing_slope, ttc, level, gt_a, gt_b`
 - `data/ttc_stats.json`：杂波滤除率、首次 WARN/STOP 时刻、TTC 范围、测距误差、误报数
-- `docs/img/radar_ttc_fcw/ttc_curve.png`：TTC 曲线与分级色带、测距 vs GT、双目标径向速度
+- `data/ttc_curve.png`：本次运行生成的 TTC 曲线与分级色带、测距 vs GT、双目标径向速度；`docs/img/radar_ttc_fcw/ttc_curve.png` 是随仓库提交的静态示例图，运行不会覆盖它。
 
 ## 运行截图
 
@@ -92,6 +92,8 @@ TTC 5.66 -> 1.81 s，测距 MAE 0.26 m，远离目标 53 帧 / 误报 0
 | `d_warn` / `d_stop` | 25.0 / 8.0 m | 距离兜底阈值 |
 | `hysteresis` | 3 帧 | 降级迟滞，避免等级抖动 |
 | `depth_bias` | 1.4 m | 车尾表面 → 车辆中心的标定偏差 |
+
+> 说明：表中 `depth_bias`（1.4 m 补偿）、`ttc_warn/ttc_stop`（4.0 / 2.0 s）与距离兜底阈值均为本场景标定值；更换车型、雷达安装位置或车体几何后需要重新标定。
 
 ## 数据集说明
 
