@@ -329,7 +329,7 @@ def main():
     out_dir = args.out or os.path.join(HERE, "data")   # 表格/统计放示例数据旁
     save_results(records, stats, out_dir)
     if not args.no_plot:
-        plot_curves(records, frames, repo_img_dir(), stats)  # 效果图放 docs/img
+        plot_curves(records, frames, out_dir, stats)  # 效果图写 data/，不覆盖 docs/img 提交图
 
     assert stats["false_alarms"] == 0, "远离目标出现误报"
     print("\n结论: 杂波被速度域分离抑制，接近目标触发 WARN -> STOP，"
